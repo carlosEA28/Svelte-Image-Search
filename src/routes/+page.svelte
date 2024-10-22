@@ -2,6 +2,7 @@
     
     import axios from "axios";
     import {onMount} from "svelte";
+    import {fade,fly} from "svelte/transition"
 
     let term = ""
     let photos: {
@@ -37,7 +38,7 @@
     </div>
     <div class="photos">
         {#each photos as  photo,i(photo.id)}
-            <img src={photo.urls.regular} alt={photo.alt_description} class="image">
+            <img src={photo.urls.regular} alt={photo.alt_description} class="image" in:fly={{y:200,duration:200}}>
         {/each}
     </div>
 </div>
